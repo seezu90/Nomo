@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Countdown 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+body{
+margin:0;
+background:#ffeef2;
+font-family:'Poppins',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.perspective-container{
+width:90%;
+max-width:400px;
+height:450px;
+position:relative;
+}
+
+.card{
+position:absolute;
+width:100%;
+height:100%;
+background:white;
+border-radius:25px;
+padding:30px;
+text-align:center;
+box-shadow:0 15px 35px rgba(214,51,132,0.2);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1{
+font-family:'Pacifico',cursive;
+color:#ff4d8d;
+font-size:2rem;
+}
+
+p{
+color:#555;
+font-size:1.1rem;
+line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="perspective-container">
+
+<div class="card">
+
+<!-- NORMAL CONTENT -->
+<div id="card1-content">
+<h1>Hey Namrataa ✨</h1>
+<p>I have something very special waiting...</p>
+</div>
+
+<!-- EXPIRED CONTENT -->
+<div id="expired-content" style="display:none;">
+<h1 style="font-size:2.2rem;">💔 Expired Birthday Wishes Website</h1>
+<p>This birthday surprise is no longer available.</p>
+<p>Please contact Season for a new link ✨</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ===== EXPIRY SETTINGS ===== */
+
+// testing ke liye expired force ON
+const FORCE_EXPIRED = true;
+
+// real expiry date (future)
+const EXPIRY_TIME = new Date("February 10, 2026 12:00:00").getTime();
+
+function checkExpiry(){
+
+const now = new Date().getTime();
+
+if(FORCE_EXPIRED || now > EXPIRY_TIME){
+
+document.getElementById("card1-content").style.display="none";
+document.getElementById("expired-content").style.display="block";
+
+}
+
+}
+
+window.onload = checkExpiry;
+
+</script>
+
+</body>
+</html>
